@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace X4PK6D_HFT_2023241.Models
+namespace X4PK6D_HFT_2023241.Logic
 {
-    internal class Class2
+    internal class EntriesExitsLogic
     {
     }
 }
