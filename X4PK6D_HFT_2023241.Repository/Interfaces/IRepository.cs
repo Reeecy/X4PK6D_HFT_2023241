@@ -8,7 +8,7 @@ namespace X4PK6D_HFT_2023241.Repository
 {
     public interface IRepository<T> where T : class
     {
-        IQueryable<T> Readall();
+        IQueryable<T> ReadAll();
         T Read(int id);
         void Create(T entity);
         void Update(T entity);

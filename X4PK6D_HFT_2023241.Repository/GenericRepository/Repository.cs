@@ -27,7 +27,7 @@ namespace X4PK6D_HFT_2023241.Repository
             _context.SaveChanges();
         }
 
-        public IQueryable<T> Readall()
+        public IQueryable<T> ReadAll()
         {
             return _context.Set<T>();
         }
