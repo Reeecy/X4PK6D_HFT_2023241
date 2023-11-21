@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace X4PK6D_HFT_2023241.Models
 {
-    internal class Pass
+    public class Pass
     {
     }
 }

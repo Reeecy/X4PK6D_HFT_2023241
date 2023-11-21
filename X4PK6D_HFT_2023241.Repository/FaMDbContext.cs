@@ -13,6 +13,7 @@ namespace X4PK6D_HFT_2023241.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase("db");
+            optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -20,5 +21,6 @@ namespace X4PK6D_HFT_2023241.Repository
         {
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }
