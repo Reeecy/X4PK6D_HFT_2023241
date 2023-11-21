@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using X4PK6D_HFT_2023241.Models;
 
 namespace X4PK6D_HFT_2023241.Repository
 {
     public class FaMDbContext : DbContext
     {
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Pass> Passes { get; set; }
+        public DbSet<EntriesExits> EntriesExits { get; set; }
+
         public FaMDbContext()
         {
             Database.EnsureCreated();
@@ -19,6 +24,8 @@ namespace X4PK6D_HFT_2023241.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Person>().HasOne;
+
             base.OnModelCreating(modelBuilder);
         }
 
