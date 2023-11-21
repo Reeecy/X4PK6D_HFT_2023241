@@ -24,7 +24,6 @@ namespace X4PK6D_HFT_2023241.Models
         public bool isRetired { get; set; }
 
         public int PassId { get; set; }
-        public int EntriesExitsId { get; set; }
         [NotMapped]
         public virtual Pass Pass { get; set; }
         [NotMapped]
