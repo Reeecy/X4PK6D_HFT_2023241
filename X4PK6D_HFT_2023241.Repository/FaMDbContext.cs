@@ -17,7 +17,9 @@ namespace X4PK6D_HFT_2023241.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("db");
+            //optionsBuilder.UseInMemoryDatabase("db");
+            string conn = @"";
+            optionsBuilder.UseSqlServer(conn);
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
