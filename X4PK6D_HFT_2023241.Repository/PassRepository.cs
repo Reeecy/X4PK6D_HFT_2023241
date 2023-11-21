@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace X4PK6D_HFT_2023241.Repository
 {
-    internal class PassRepository
+    public class PassRepository
     {
     }
 }
