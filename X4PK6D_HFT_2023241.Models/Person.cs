@@ -20,8 +20,8 @@ namespace X4PK6D_HFT_2023241.Models
         public string PhoneNumber { get; set; }
         [StringLength(240)]
         public string Email { get; set; }
-        public bool isStudent { get; set; }
-        public bool isRetired { get; set; }
+        public bool IsStudent { get; set; }
+        public bool IsRetired { get; set; }
 
         public int PassId { get; set; }
         [NotMapped]

@@ -24,6 +24,7 @@ namespace X4PK6D_HFT_2023241.Repository
             {
                 property.SetValue(entriesExits, property.GetValue(entity));
             }
+            _context.SaveChanges();
         }
     }
 }
