@@ -16,7 +16,7 @@ namespace X4PK6D_HFT_2023241.Models
         public string LastName { get; set;}
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
-        [StringLength(10)]
+        [StringLength(30)]
         public string PhoneNumber { get; set; }
         [StringLength(240)]
         public string Email { get; set; }

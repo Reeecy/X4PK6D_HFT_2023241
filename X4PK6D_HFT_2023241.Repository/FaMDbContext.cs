@@ -18,7 +18,7 @@ namespace X4PK6D_HFT_2023241.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseInMemoryDatabase("db");
-            string conn = @"";
+            string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""|DataDirectory|\fandm.mdf"";Integrated Security=True;MultipleActiveResultSets=True";
             optionsBuilder.UseSqlServer(conn);
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
@@ -28,6 +28,8 @@ namespace X4PK6D_HFT_2023241.Repository
         {
             modelBuilder.Entity<Person>().HasOne(p => p.Pass).WithMany(p => p.Persons).HasForeignKey(p => p.PassId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<EntriesExits>().HasOne(e => e.Person).WithMany(e => e.EntriesExits).HasForeignKey(e => e.PersonId).OnDelete(DeleteBehavior.Cascade);
+
+
 
 
             base.OnModelCreating(modelBuilder);
