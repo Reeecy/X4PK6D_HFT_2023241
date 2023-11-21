@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="fandm.mdf" />
-    <None Remove="fandm_log.ldf" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="fandm.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 using System.Linq;
+using X4PK6D_HFT_2023241.Models;
 
 namespace X4PK6D_HFT_2023241.Client
 {
@@ -7,11 +9,8 @@ namespace X4PK6D_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            FaMDbContext context = new FaMDbContext();
-            var items = context.Persons.ToArray();
-            var any = context.Passes.ToArray();
-            var szur = context.EntriesExits.ToArray();
-            ;
+            IRepository<Person> repo = new PersonRepository(new FaMDbContext());
+
         }
     }
 }

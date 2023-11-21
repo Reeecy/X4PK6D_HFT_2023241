@@ -10,7 +10,7 @@ namespace X4PK6D_HFT_2023241.Repository
     public class PersonRepository : Repository<Person>, IRepository<Person>
     {
         public PersonRepository(FaMDbContext context) : base(context)
-        {}
+        { }
 
         public override Person Read(int id)
         {
