@@ -3,18 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using NUnit.Framework;
 using System;
 using System.Linq;
-using X4PK6D_HFT_2023241.Logic;
 using X4PK6D_HFT_2023241.Models;
-using X4PK6D_HFT_2023241.Repository;
 
 namespace X4PK6D_HFT_2023241.Client
 {
     public class Program
     {
-        static PersonLogic personLogic;
-        static PassLogic passLogic;
-        static EntriesExitsLogic entriesExitsLogic;
-
         private static void Update(string v)
         {
             Console.WriteLine(v + " update");
@@ -37,11 +31,7 @@ namespace X4PK6D_HFT_2023241.Client
         {
             if (v == "Person")
             {
-                var items = personLogic.ReadAll();
-                foreach (var item in items)
-                {
-                    Console.WriteLine(item.Id + " " + item.FirstName + " " + item.LastName + " " + item.DateOfBirth + " " + item.Address + " " + item.PhoneNumber + " " + item.Email + " " + item.IsStudent + " " + item.IsRetired + " " + item.PassId);
-                }
+
             }
             else if (v == "Pass")
             {
@@ -64,15 +54,7 @@ namespace X4PK6D_HFT_2023241.Client
 
         static void Main(string[] args)
         {
-            // Repository and Logic references are added to the Client project
-            var ctx = new FaMDbContext();
-            var personRepo = new PersonRepository(ctx);
-            var passRepo = new PassRepository(ctx);
-            var entriesExitsRepo = new EntriesExitsRepository(ctx);
 
-            personLogic = new PersonLogic(personRepo);
-            passLogic = new PassLogic(passRepo);
-            entriesExitsLogic = new EntriesExitsLogic(entriesExitsRepo);
 
             var entriesExitsSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => ShowThem("EntriesExits"))
