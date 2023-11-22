@@ -27,5 +27,10 @@ namespace X4PK6D_HFT_2023241.Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Person> Persons { get; set; }
+
+        public Pass()
+        {
+            Persons = new HashSet<Person>();
+        }
     }
 }

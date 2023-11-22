@@ -31,5 +31,10 @@ namespace X4PK6D_HFT_2023241.Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<EntriesExits> EntriesExits { get; set; }
+
+        public Person()
+        {
+            EntriesExits = new HashSet<EntriesExits>();
+        }
     }
 }
