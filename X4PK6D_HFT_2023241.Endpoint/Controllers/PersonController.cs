@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using X4PK6D_HFT_2023241.Logic;
+using X4PK6D_HFT_2023241.Models;
 
 namespace X4PK6D_HFT_2023241.Endpoint.Controllers
 {
@@ -16,30 +17,33 @@ namespace X4PK6D_HFT_2023241.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Person> ReadAll()
         {
-            return new string[] { "value1", "value2" };
+            return this.logic.ReadAll();
         }
 
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Person Read(int id)
         {
-            return "value";
+            return this.logic.Read(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Create([FromBody] Person value)
         {
+            this.logic.Create(value);
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Update([FromBody] Person value)
         {
+            this.logic.Update(value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            this.logic.Delete(id);
         }
     }
 }
