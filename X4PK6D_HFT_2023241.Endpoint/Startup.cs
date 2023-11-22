@@ -63,7 +63,7 @@ namespace X4PK6D_HFT_2023241.Endpoint
                     .Get<IExceptionHandlerPathFeature>()
                     .Error;
 
-                var response = new { message = exception.Message };
+                var response = new { Msg = exception.Message };
 
                 await context.Response.WriteAsJsonAsync(response);
             }));

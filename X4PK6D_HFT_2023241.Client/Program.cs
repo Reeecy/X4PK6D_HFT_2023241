@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using X4PK6D_HFT_2023241.Models;
 
@@ -9,6 +10,8 @@ namespace X4PK6D_HFT_2023241.Client
 {
     public class Program
     {
+        static RestService rest;
+
         private static void Update(string v)
         {
             Console.WriteLine(v + " update");
@@ -31,11 +34,12 @@ namespace X4PK6D_HFT_2023241.Client
         {
             if (v == "Person")
             {
-
+                List<Person> items = rest.Get<Person>("person");
+                foreach (Person person in items) { Console.WriteLine(person.Id + " " + person.FirstName + " " + person.LastName); }
             }
             else if (v == "Pass")
             {
-                var items = passLogic.ReadAll();
+                List<Pass> items = rest.Get<Pass>("pass");
                 foreach (var item in items)
                 {
                     Console.WriteLine(item.Id + " " + item.PassType + " " + item.StartDate + " " + item.EndDate + " " + item.Price + " " + item.CrossfitGymUsage + " " + item.GroupTrainingUsage + " " + item.PoolUsage + " " + item.SaunaUsage + " " + item.MassageUsage);
@@ -43,7 +47,7 @@ namespace X4PK6D_HFT_2023241.Client
             }
             else if (v == "EntriesExits")
             {
-                var items = entriesExitsLogic.ReadAll();
+                List<EntriesExits> items = rest.Get<EntriesExits>("entriesexits");
                 foreach (var item in items)
                 {
                     Console.WriteLine(item.Id + " " + item.EntryTime + " " + item.ExitTime + " " + item.PersonId);
@@ -54,7 +58,7 @@ namespace X4PK6D_HFT_2023241.Client
 
         static void Main(string[] args)
         {
-
+            rest = new RestService("http://localhost:20677/", "person");
 
             var entriesExitsSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => ShowThem("EntriesExits"))
