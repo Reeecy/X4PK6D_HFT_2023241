@@ -62,7 +62,7 @@ namespace X4PK6D_HFT_2023241.Logic
         }
 
         // Retrieve Persons with their Entry-Exit Information
-        public void PersonsWithEntriesExits()
+        public IEnumerable<object> PersonsWithEntriesExits()
         {
             var persons = _repo.ReadAll();
             var personWithEntriesExits = from x in persons
@@ -73,10 +73,11 @@ namespace X4PK6D_HFT_2023241.Logic
                                              Entries = g.SelectMany(x => x.EntriesExits).Select(x => x.EntryTime),
                                              Exits = g.SelectMany(x => x.EntriesExits).Select(x => x.ExitTime)
                                          };
+            return personWithEntriesExits;
         }
 
         // Retrieve Persons with Expired Passes
-        public void PersonsWithExpiredPasses()
+        public IEnumerable<object> PersonsWithExpiredPasses()
         {
             var persons = _repo.ReadAll();
             var personWithExpiredPasses = from x in persons
@@ -88,11 +89,12 @@ namespace X4PK6D_HFT_2023241.Logic
                                               StartDate = x.Pass.StartDate,
                                               EndDate = x.Pass.EndDate
                                           };
+            return personWithExpiredPasses;
         }
 
 
         // Retrieve Persons with Active Passes and Their Entry-Exit Information
-        public void PersonsWithActivePasses()
+        public IEnumerable<object> PersonsWithActivePasses()
         {
             var persons = _repo.ReadAll();
             var personWithActivePasses = from x in persons
@@ -101,15 +103,15 @@ namespace X4PK6D_HFT_2023241.Logic
                                          {
                                              FullName = $"{x.FirstName} {x.LastName}",
                                              PassType = x.Pass.PassType,
-                                             StartDate = x.Pass.StartDate,
                                              EndDate = x.Pass.EndDate,
                                              Entries = x.EntriesExits.Select(x => x.EntryTime),
                                              Exits = x.EntriesExits.Select(x => x.ExitTime)
                                          };
+            return personWithActivePasses;
         }
 
         // Retrieve Persons with Monthly Passes and Their Total Usage Duration
-        public void PersonsWithMonthlyPassesAndTotalUsageDuration()
+        public IEnumerable<object> PersonsWithMonthlyPassesAndTotalUsageDuration()
         {
             var persons = _repo.ReadAll();
             var personWithMonthlyPasses = from x in persons
@@ -122,10 +124,11 @@ namespace X4PK6D_HFT_2023241.Logic
                                               EndDate = x.Pass.EndDate,
                                               //TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime - x.EntryTime).Sum()
                                           };
+            return personWithMonthlyPasses;
         }
 
         // Retrieve Persons without Passes
-        public void PersonsWithoutPasses()
+        public IEnumerable<object> PersonsWithoutPasses()
         {
             var persons = _repo.ReadAll();
             var personWithoutPasses = from x in persons
@@ -134,6 +137,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                       {
                                           FullName = $"{x.FirstName} {x.LastName}"
                                       };
+            return personWithoutPasses;
         }
     }
 }
