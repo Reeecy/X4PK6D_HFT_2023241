@@ -14,20 +14,38 @@ namespace X4PK6D_HFT_2023241.Client
 
         private static void Update(string v)
         {
-            Console.WriteLine(v + " update");
-            Console.ReadLine();
+            if (v == "Person")
+            {
+                Console.Write("Enter Person's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Person person = rest.Get<Person>(id, "person");
+                Console.Write($"New name [old: {person.FirstName} {person.LastName}] ");
+                string name = Console.ReadLine();
+                person.FirstName = name.Split(" ")[0];
+                person.LastName = name.Split(" ")[1];
+                rest.Put(person, "person");
+            }
         }
 
         private static void Delete(string v)
         {
-            Console.WriteLine(v + " delete");
-            Console.ReadLine();
+            if (v == "Person")
+            {
+                Console.Write("Enter Person's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "person");
+            }
         }
 
         private static void Create(string v)
         {
-            Console.WriteLine(v + " create");
-            Console.ReadLine();
+            if (v == "Person")
+            {
+                Console.Write("Enter Person name: ");
+                string name = Console.ReadLine();
+                var person = name.Split(" ");
+                rest.Post(new Person { FirstName = person[0], LastName = person[1] }, "person");
+            }
         }
 
         private static void ShowThem(string v)
