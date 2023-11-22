@@ -60,5 +60,80 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             return _repo.ReadAll().Count();
         }
+
+        // Retrieve Persons with their Entry-Exit Information
+        public void PersonsWithEntriesExits()
+        {
+            var persons = _repo.ReadAll();
+            var personWithEntriesExits = from x in persons
+                                         group x by new { x.FirstName, x.LastName } into g
+                                         select new
+                                         {
+                                             FullName = $"{g.Key.FirstName} {g.Key.LastName}",
+                                             Entries = g.SelectMany(x => x.EntriesExits).Select(x => x.EntryTime),
+                                             Exits = g.SelectMany(x => x.EntriesExits).Select(x => x.ExitTime)
+                                         };
+        }
+
+        // Retrieve Persons with Expired Passes
+        public void PersonsWithExpiredPasses()
+        {
+            var persons = _repo.ReadAll();
+            var personWithExpiredPasses = from x in persons
+                                          where x.Pass.EndDate < DateTime.Now
+                                          select new
+                                          {
+                                              FullName = $"{x.FirstName} {x.LastName}",
+                                              PassType = x.Pass.PassType,
+                                              StartDate = x.Pass.StartDate,
+                                              EndDate = x.Pass.EndDate
+                                          };
+        }
+
+
+        // Retrieve Persons with Active Passes and Their Entry-Exit Information
+        public void PersonsWithActivePasses()
+        {
+            var persons = _repo.ReadAll();
+            var personWithActivePasses = from x in persons
+                                         where x.Pass.EndDate > DateTime.Now
+                                         select new
+                                         {
+                                             FullName = $"{x.FirstName} {x.LastName}",
+                                             PassType = x.Pass.PassType,
+                                             StartDate = x.Pass.StartDate,
+                                             EndDate = x.Pass.EndDate,
+                                             Entries = x.EntriesExits.Select(x => x.EntryTime),
+                                             Exits = x.EntriesExits.Select(x => x.ExitTime)
+                                         };
+        }
+
+        // Retrieve Persons with Monthly Passes and Their Total Usage Duration
+        public void PersonsWithMonthlyPassesAndTotalUsageDuration()
+        {
+            var persons = _repo.ReadAll();
+            var personWithMonthlyPasses = from x in persons
+                                          where x.Pass.PassType == "Monthly"
+                                          select new
+                                          {
+                                              FullName = $"{x.FirstName} {x.LastName}",
+                                              PassType = x.Pass.PassType,
+                                              StartDate = x.Pass.StartDate,
+                                              EndDate = x.Pass.EndDate,
+                                              //TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime - x.EntryTime).Sum()
+                                          };
+        }
+
+        // Retrieve Persons without Passes
+        public void PersonsWithoutPasses()
+        {
+            var persons = _repo.ReadAll();
+            var personWithoutPasses = from x in persons
+                                      where x.Pass == null
+                                      select new
+                                      {
+                                          FullName = $"{x.FirstName} {x.LastName}"
+                                      };
+        }
     }
 }
