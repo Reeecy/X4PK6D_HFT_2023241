@@ -19,9 +19,10 @@ namespace X4PK6D_HFT_2023241.Repository
         public override void Update(Pass entity)
         {
             var pass = Read(entity.Id);
-            foreach (var property in typeof(Person).GetProperties())
+            foreach (var property in typeof(Pass).GetProperties())
             {
-                property.SetValue(pass, property.GetValue(entity));
+                if (property.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                    property.SetValue(pass, property.GetValue(entity));
             }
             _context.SaveChanges();
         }
