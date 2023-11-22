@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace X4PK6D_HFT_2023241.Models
 {
@@ -25,8 +26,10 @@ namespace X4PK6D_HFT_2023241.Models
 
         public int PassId { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Pass Pass { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<EntriesExits> EntriesExits { get; set; }
     }
 }
