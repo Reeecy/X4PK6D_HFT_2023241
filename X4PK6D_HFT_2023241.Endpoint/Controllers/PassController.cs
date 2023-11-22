@@ -5,7 +5,7 @@ using X4PK6D_HFT_2023241.Models;
 
 namespace X4PK6D_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PassController : ControllerBase
     {
