@@ -23,7 +23,61 @@ namespace X4PK6D_HFT_2023241.Client
                 string name = Console.ReadLine();
                 person.FirstName = name.Split(" ")[0];
                 person.LastName = name.Split(" ")[1];
-                rest.Put(person, "person");
+                Console.Write($"New date of birth [old: {person.DateOfBirth}] ");
+                DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
+                Console.Write($"New Phone Number [old: {person.PhoneNumber}] ");
+                string phoneNumber = Console.ReadLine();
+                Console.Write($"New Is Student [old: {person.IsStudent}] ");
+                bool isStudent = bool.Parse(Console.ReadLine());
+                Console.Write($"New Is Retired [old: {person.IsRetired}] ");
+                bool isRetired = bool.Parse(Console.ReadLine());
+                Console.Write($"New Address [old: {person.Address}] ");
+                string address = Console.ReadLine();
+                Console.Write($"New Email [old: {person.Email}] ");
+                string email = Console.ReadLine();
+                Console.Write($"New Pass Id [old: {person.PassId}] ");
+                int passId = int.Parse(Console.ReadLine());
+                rest.Put(new Person { Id = id, FirstName = name.Split(" ")[0], LastName = name.Split(" ")[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
+            }
+
+            if (v == "Pass")
+            {
+                Console.Write("Enter Pass's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Pass pass = rest.Get<Pass>(id, "pass");
+                Console.Write($"New Pass type [old: {pass.PassType}] ");
+                string passType = Console.ReadLine();
+                Console.Write($"New Pass start date [old: {pass.StartDate}] ");
+                DateTime startDate = DateTime.Parse(Console.ReadLine());
+                Console.Write($"New Pass end date [old: {pass.EndDate}] ");
+                DateTime endDate = DateTime.Parse(Console.ReadLine());
+                Console.Write($"New Pass price [old: {pass.Price}] ");
+                int price = int.Parse(Console.ReadLine());
+                Console.Write($"New Pass Crossfit Gym Usage [old: {pass.CrossfitGymUsage}] ");
+                bool crossfitGymUsage = bool.Parse(Console.ReadLine());
+                Console.Write($"New Pass Group Training Usage [old: {pass.GroupTrainingUsage}] ");
+                bool groupTrainingUsage = bool.Parse(Console.ReadLine());
+                Console.Write($"New Pass Pool Usage [old: {pass.PoolUsage}] ");
+                bool poolUsage = bool.Parse(Console.ReadLine());
+                Console.Write($"New Pass Sauna Usage [old: {pass.SaunaUsage}] ");
+                bool saunaUsage = bool.Parse(Console.ReadLine());
+                Console.Write($"New Pass Massage Usage [old: {pass.MassageUsage}] ");
+                bool massageUsage = bool.Parse(Console.ReadLine());
+                rest.Put(new Pass { Id = id, PassType = passType, StartDate = startDate, EndDate = endDate, Price = price, CrossfitGymUsage = crossfitGymUsage, GroupTrainingUsage = groupTrainingUsage, PoolUsage = poolUsage, SaunaUsage = saunaUsage, MassageUsage = massageUsage }, "pass");
+            }
+
+            if (v == "EntriesExits")
+            {
+                Console.Write("Enter EntriesExits's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                EntriesExits entriesExits = rest.Get<EntriesExits>(id, "entriesexits");
+                Console.Write($"New Entry time [old: {entriesExits.EntryTime}] ");
+                DateTime entryTime = DateTime.Parse(Console.ReadLine());
+                Console.Write($"New Exit time [old: {entriesExits.ExitTime}] ");
+                DateTime exitTime = DateTime.Parse(Console.ReadLine());
+                Console.Write($"New Person id [old: {entriesExits.PersonId}] ");
+                int personId = int.Parse(Console.ReadLine());
+                rest.Put(new EntriesExits { Id = id, EntryTime = entryTime, ExitTime = exitTime, PersonId = personId }, "entriesexits");
             }
         }
 
@@ -34,6 +88,20 @@ namespace X4PK6D_HFT_2023241.Client
                 Console.Write("Enter Person's id to delete: ");
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "person");
+            }
+
+            if (v == "Pass")
+            {
+                Console.Write("Enter Pass's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "pass");
+            }
+
+            if (v == "EntriesExits")
+            {
+                Console.Write("Enter EntriesExits's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "entriesexits");
             }
         }
 
