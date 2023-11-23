@@ -20,5 +20,35 @@ namespace X4PK6D_HFT_2023241.Endpoint.Controllers
         {
             return logic.PersonCount();
         }
+
+        [HttpGet]
+        public IEnumerable<object> PersonsWithEntriesExits()
+        {
+            return logic.PersonsWithEntriesExits();
+        }
+
+        [HttpGet]
+        public IEnumerable<object> PersonsWithExpiredPasses()
+        {
+            return logic.PersonsWithExpiredPasses();
+        }
+
+        [HttpGet]
+        public IEnumerable<object> PersonsWithActivePasses()
+        {
+            return logic.PersonsWithActivePasses();
+        }
+
+        [HttpGet]
+        public IEnumerable<object> PersonsWithMonthlyPassesAndTotalUsageDuration()
+        {
+            return logic.PersonsWithMonthlyPassesAndTotalUsageDuration();
+        }
+
+        [HttpGet]
+        public IEnumerable<object> PersonsWithoutPasses()
+        {
+            return logic.PersonsWithoutPasses();
+        }
     }
 }

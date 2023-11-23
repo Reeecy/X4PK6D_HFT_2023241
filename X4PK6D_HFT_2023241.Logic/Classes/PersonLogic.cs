@@ -86,7 +86,6 @@ namespace X4PK6D_HFT_2023241.Logic
                                           {
                                               FullName = $"{x.FirstName} {x.LastName}",
                                               PassType = x.Pass.PassType,
-                                              StartDate = x.Pass.StartDate,
                                               EndDate = x.Pass.EndDate
                                           };
             return personWithExpiredPasses;
