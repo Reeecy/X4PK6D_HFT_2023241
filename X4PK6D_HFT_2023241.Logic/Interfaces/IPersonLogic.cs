@@ -11,5 +11,12 @@ namespace X4PK6D_HFT_2023241.Logic
         Person Read(int id);
         IEnumerable<Person> ReadAll();
         void Update(Person person);
+
+        // NON CRUD
+        IEnumerable<object> PersonsWithEntriesExits();
+        IEnumerable<object> PersonsWithExpiredPasses();
+        IEnumerable<object> PersonsWithActivePasses();
+        IEnumerable<object> PersonsWithMonthlyPassesAndTotalUsageDuration();
+        IEnumerable<object> PersonsWithoutPasses();
     }
 }
