@@ -15,37 +15,37 @@ namespace X4PK6D_HFT_2023241.Endpoint.Controllers
             this.logic = logic;
         }
 
-        [HttpGet]
+        [HttpGet("PersonCount")]
         public int? PersonCount()
         {
             return logic.PersonCount();
         }
 
-        [HttpGet]
+        [HttpGet("PersonsWithEntriesAndExits")]
         public IEnumerable<object> PersonsWithEntriesExits()
         {
             return logic.PersonsWithEntriesExits();
         }
 
-        [HttpGet]
+        [HttpGet("PersonsWithExpiredPasses")]
         public IEnumerable<object> PersonsWithExpiredPasses()
         {
             return logic.PersonsWithExpiredPasses();
         }
 
-        [HttpGet]
+        [HttpGet("PersonsWithActivePasses")]
         public IEnumerable<object> PersonsWithActivePasses()
         {
             return logic.PersonsWithActivePasses();
         }
 
-        [HttpGet]
+        [HttpGet("PersonsWithMonthlyPassesAndTotalUsage")]
         public IEnumerable<object> PersonsWithMonthlyPassesAndTotalUsageDuration()
         {
             return logic.PersonsWithMonthlyPassesAndTotalUsageDuration();
         }
 
-        [HttpGet]
+        [HttpGet("PersonsWithoutPasses")]
         public IEnumerable<object> PersonsWithoutPasses()
         {
             return logic.PersonsWithoutPasses();
