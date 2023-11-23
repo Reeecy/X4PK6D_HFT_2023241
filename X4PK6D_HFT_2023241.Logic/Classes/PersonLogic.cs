@@ -66,12 +66,11 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             var persons = _repo.ReadAll();
             var personWithEntriesExits = from x in persons
-                                         group x by new { x.FirstName, x.LastName } into g
                                          select new
                                          {
-                                             FullName = $"{g.Key.FirstName} {g.Key.LastName}",
-                                             Entries = g.SelectMany(x => x.EntriesExits).Select(x => x.EntryTime),
-                                             Exits = g.SelectMany(x => x.EntriesExits).Select(x => x.ExitTime)
+                                             FullName = $"{x.FirstName} {x.LastName}",
+                                             Entries = x.EntriesExits.Select(x => x.EntryTime),
+                                             Exits = x.EntriesExits.Select(x => x.ExitTime)
                                          };
             return personWithEntriesExits;
         }
