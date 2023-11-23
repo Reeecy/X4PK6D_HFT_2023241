@@ -256,24 +256,53 @@ namespace X4PK6D_HFT_2023241.Client
             var persons = rest.GetSingle<List<PWithMonthlyPsAndTUD>>("/api/Stat/PersonsWithMonthlyPassesAndTotalUsage");
             foreach (var person in persons)
             {
-                Console.WriteLine(person.FullName + " " + person.StartDate + " " + person.EndDate + " " + person.TotalUsageDuration);
+                Console.WriteLine(person.FullName + "\tStart: " + person.StartDate + "\tEnd: " + person.EndDate + "\tTotal: " + person.TotalUsageDuration);
             }
             Console.ReadLine();
         }
 
         private static void ShowStudentsWithActivePasses()
         {
-            throw new NotImplementedException();
+            var students = rest.GetSingle<List<ActiveStudents>>("/api/Stat/StudentsWithActivePasses");
+            foreach (var student in students)
+            {
+                Console.WriteLine(student.FullName + "\tPass type: " + student.PassType + "\nEnd date: " + student.EndDate);
+                Console.WriteLine("Entries and exits:");
+
+                for (int i = 0; i < student.Entries.Count; i++)
+                {
+                    Console.WriteLine("Entry: " + student.Entries[i] + "\tExit: " + student.Exits[i]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
         }
 
         private static void ShowPersonsWithExpiredPasses()
         {
-            throw new NotImplementedException();
+            var persons = rest.GetSingle<List<ExpiredPasses>>("/api/Stat/PersonsWithExpiredPasses");
+            foreach (var person in persons)
+            {
+                Console.WriteLine(person.FullName + "\tPass type: " + person.PassType + "\tEnd date: " + person.EndDate);
+            }
+            Console.ReadLine();
         }
 
         private static void ShowPersonsWithEntriesExits()
         {
-            throw new NotImplementedException();
+            var persons = rest.GetSingle<List<AllEntriesAndExits>>("/api/Stat/PersonsWithEntriesAndExits");
+            foreach (var person in persons)
+            {
+                Console.WriteLine(person.FullName);
+                Console.WriteLine("Entries and exits:");
+
+                for (int i = 0; i < person.Entries.Count; i++)
+                {
+                    Console.WriteLine("Entry: " + person.Entries[i] + "\tExit: " + person.Exits[i]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
         }
     }
 }
