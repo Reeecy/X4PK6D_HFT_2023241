@@ -48,9 +48,9 @@ namespace X4PK6D_HFT_2023241.Client
                 DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
                 Console.Write("Enter Person's Phone Number: ");
                 string phoneNumber = Console.ReadLine();
-                Console.Write("Is the person a student? (true/false)");
+                Console.Write("Is the person a student? (true/false) ");
                 bool isStudent = bool.Parse(Console.ReadLine());
-                Console.Write("Is the person retired? (true/false)");
+                Console.Write("Is the person retired? (true/false) ");
                 bool isRetired = bool.Parse(Console.ReadLine());
                 Console.Write("Enter Person's Address: ");
                 string address = Console.ReadLine();
@@ -71,15 +71,15 @@ namespace X4PK6D_HFT_2023241.Client
                 DateTime endDate = DateTime.Parse(Console.ReadLine());
                 Console.Write("Enter Pass price: ");
                 int price = int.Parse(Console.ReadLine());
-                Console.Write("Enter Pass Crossfit Gym Usage: ");
+                Console.Write("Enter Pass Crossfit Gym Usage (true/false): ");
                 bool crossfitGymUsage = bool.Parse(Console.ReadLine());
-                Console.Write("Enter Pass Group Training Usage: ");
+                Console.Write("Enter Pass Group Training Usage (true/false): ");
                 bool groupTrainingUsage = bool.Parse(Console.ReadLine());
-                Console.Write("Enter Pass Pool Usage: ");
+                Console.Write("Enter Pass Pool Usage (true/false): ");
                 bool poolUsage = bool.Parse(Console.ReadLine());
-                Console.Write("Enter Pass Sauna Usage: ");
+                Console.Write("Enter Pass Sauna Usage (true/false): ");
                 bool saunaUsage = bool.Parse(Console.ReadLine());
-                Console.Write("Enter Pass Massage Usage: ");
+                Console.Write("Enter Pass Massage Usage (true/false): ");
                 bool massageUsage = bool.Parse(Console.ReadLine());
                 rest.Post(new Pass { PassType = passType, StartDate = startDate, EndDate = endDate, Price = price, CrossfitGymUsage = crossfitGymUsage, GroupTrainingUsage = groupTrainingUsage, PoolUsage = poolUsage, SaunaUsage = saunaUsage, MassageUsage = massageUsage }, "pass");
             }
