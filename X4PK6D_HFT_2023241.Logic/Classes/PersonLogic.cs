@@ -20,6 +20,12 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             if (person == null)
                 throw new ArgumentNullException(nameof(person));
+            else if (person.Address == "" || person.Address.Length < 4)
+                throw new ArgumentException("Wrong Address");
+            else if (person.FirstName == "" || person.FirstName.Length < 2)
+                throw new ArgumentException("Wrong Name");
+            else if (person.LastName == "" || person.LastName.Length < 2)
+                throw new ArgumentException("Wrong Address");
             else
                 _repo.Create(person);
         }
