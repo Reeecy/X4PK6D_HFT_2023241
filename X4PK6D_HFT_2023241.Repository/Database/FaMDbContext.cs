@@ -43,7 +43,7 @@ namespace X4PK6D_HFT_2023241.Repository
             .HasForeignKey(person => person.PassId)
             .OnDelete(DeleteBehavior.Cascade));
 
-
+            #region Seed Data
             List<Person> personList = new List<Person>
             {
             new Person { Id = 1,FirstName = "John",LastName = "Doe",DateOfBirth = new DateTime(1980, 1, 1),Address = "123 Main St, Cityville",PhoneNumber = "555-1234",Email = "john.doe@example.com",IsStudent = false,IsRetired = false,PassId = 1},
@@ -113,6 +113,7 @@ namespace X4PK6D_HFT_2023241.Repository
 
                 entriesExitsList.Add(entryExit);
             }
+            #endregion
 
             modelBuilder.Entity<EntriesExits>().HasData(entriesExitsList);
             modelBuilder.Entity<Person>().HasData(personList);
