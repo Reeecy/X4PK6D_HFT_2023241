@@ -34,9 +34,9 @@ namespace X4PK6D_HFT_2023241.Endpoint.Controllers
         }
 
         [HttpGet("PersonsWithActivePasses")]
-        public IEnumerable<object> PersonsWithActivePasses()
+        public IEnumerable<object> StudentsWithActivePasses()
         {
-            return logic.PersonsWithActivePasses();
+            return logic.StudentsWithActivePasses();
         }
 
         [HttpGet("PersonsWithMonthlyPassesAndTotalUsage")]

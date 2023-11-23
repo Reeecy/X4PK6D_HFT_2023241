@@ -92,12 +92,12 @@ namespace X4PK6D_HFT_2023241.Logic
         }
 
 
-        // Retrieve Persons with Active Passes and Their Entry-Exit Information
-        public IEnumerable<object> PersonsWithActivePasses()
+        // Retrieve Students with Active Passes and Their Entry-Exit Information
+        public IEnumerable<object> StudentsWithActivePasses()
         {
             var persons = _repo.ReadAll();
-            var personWithActivePasses = from x in persons
-                                         where x.Pass.EndDate > DateTime.Now
+            var studentsWithActivePasses = from x in persons
+                                         where x.Pass.EndDate > DateTime.Now && x.Pass.PassType == "Student"
                                          select new
                                          {
                                              FullName = $"{x.FirstName} {x.LastName}",
@@ -106,7 +106,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                              Entries = x.EntriesExits.Select(x => x.EntryTime),
                                              Exits = x.EntriesExits.Select(x => x.ExitTime)
                                          };
-            return personWithActivePasses;
+            return studentsWithActivePasses;
         }
 
         // Retrieve Persons with Monthly Passes and Their Total Usage Duration

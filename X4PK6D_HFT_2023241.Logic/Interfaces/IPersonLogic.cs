@@ -15,7 +15,7 @@ namespace X4PK6D_HFT_2023241.Logic
         // NON CRUD
         IEnumerable<object> PersonsWithEntriesExits();
         IEnumerable<object> PersonsWithExpiredPasses();
-        IEnumerable<object> PersonsWithActivePasses();
+        IEnumerable<object> StudentsWithActivePasses();
         IEnumerable<object> PersonsWithMonthlyPassesAndTotalUsageDuration();
         IEnumerable<object> PersonsWithoutPasses();
     }
