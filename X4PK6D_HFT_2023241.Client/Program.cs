@@ -44,7 +44,55 @@ namespace X4PK6D_HFT_2023241.Client
                 Console.Write("Enter Person name: ");
                 string name = Console.ReadLine();
                 var person = name.Split(" ");
-                rest.Post(new Person { FirstName = person[0], LastName = person[1] }, "person");
+                Console.Write("Enter Person's date of birth: ");
+                DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
+                Console.Write("Enter Person's Phone Number: ");
+                string phoneNumber = Console.ReadLine();
+                Console.Write("Is the person a student? (true/false)");
+                bool isStudent = bool.Parse(Console.ReadLine());
+                Console.Write("Is the person retired? (true/false)");
+                bool isRetired = bool.Parse(Console.ReadLine());
+                Console.Write("Enter Person's Address: ");
+                string address = Console.ReadLine();
+                Console.Write("Enter Person's Email: ");
+                string email = Console.ReadLine();
+                Console.Write("Enter Person's Pass Id: ");
+                int passId = int.Parse(Console.ReadLine());
+                rest.Post(new Person { FirstName = person[0], LastName = person[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
+            }
+
+            if (v == "Pass")
+            {
+                Console.Write("Enter Pass type: ");
+                string passType = Console.ReadLine();
+                Console.Write("Enter Pass start date: ");
+                DateTime startDate = DateTime.Parse(Console.ReadLine());
+                Console.Write("Enter Pass end date: ");
+                DateTime endDate = DateTime.Parse(Console.ReadLine());
+                Console.Write("Enter Pass price: ");
+                int price = int.Parse(Console.ReadLine());
+                Console.Write("Enter Pass Crossfit Gym Usage: ");
+                bool crossfitGymUsage = bool.Parse(Console.ReadLine());
+                Console.Write("Enter Pass Group Training Usage: ");
+                bool groupTrainingUsage = bool.Parse(Console.ReadLine());
+                Console.Write("Enter Pass Pool Usage: ");
+                bool poolUsage = bool.Parse(Console.ReadLine());
+                Console.Write("Enter Pass Sauna Usage: ");
+                bool saunaUsage = bool.Parse(Console.ReadLine());
+                Console.Write("Enter Pass Massage Usage: ");
+                bool massageUsage = bool.Parse(Console.ReadLine());
+                rest.Post(new Pass { PassType = passType, StartDate = startDate, EndDate = endDate, Price = price, CrossfitGymUsage = crossfitGymUsage, GroupTrainingUsage = groupTrainingUsage, PoolUsage = poolUsage, SaunaUsage = saunaUsage, MassageUsage = massageUsage }, "pass");
+            }
+
+            if (v == "EntriesExits")
+            {
+                Console.Write("Enter Entry time: ");
+                DateTime entryTime = DateTime.Parse(Console.ReadLine());
+                Console.Write("Enter Exit time: ");
+                DateTime exitTime = DateTime.Parse(Console.ReadLine());
+                Console.Write("Enter Person id: ");
+                int personId = int.Parse(Console.ReadLine());
+                rest.Post(new EntriesExits { EntryTime = entryTime, ExitTime = exitTime, PersonId = personId }, "entriesexits");
             }
         }
 

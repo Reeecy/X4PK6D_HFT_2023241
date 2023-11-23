@@ -20,7 +20,7 @@ namespace X4PK6D_HFT_2023241.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase("fandm");
-            // to use cstring: string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""|DataDirectory|\fandm.mdf"";Integrated Security=True;MultipleActiveResultSets=True";
+            // to use connstring: string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""|DataDirectory|\fandm.mdf"";Integrated Security=True;MultipleActiveResultSets=True";
             // to see tables: string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Visual Studio Projects\X4PK6D_HFT_2023241\X4PK6D_HFT_2023241.Repository\fandm.mdf"";Integrated Security=True;MultipleActiveResultSets=True";
             //optionsBuilder.UseSqlServer(conn);
             optionsBuilder.UseLazyLoadingProxies();
