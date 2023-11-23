@@ -215,13 +215,65 @@ namespace X4PK6D_HFT_2023241.Client
                 .Add("Update", () => Update("Person"))
                 .Add("Exit", ConsoleMenu.Close);
 
+            var nonCruds = new ConsoleMenu(args, level: 1)
+                .Add("Show how many persons are in the database", () => ShowPersonCount())
+                .Add("Show persons with their entries and exits", ()=>ShowPersonsWithEntriesExits())
+                .Add("Show persons with expired passes", ()=> ShowPersonsWithExpiredPasses())
+                .Add("Show students with active passes", ()=> ShowStudentsWithActivePasses())
+                .Add("Show persons with monthly passes and total usage duration", ()=> ShowPWithMonthlyPsAndTUD())
+                .Add("Show persons without passes", ()=> ShowPersonsWithoutPasses())
+                .Add("Exit", ConsoleMenu.Close);
+
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Persons", () => personSubMenu.Show())
                 .Add("Passes", () => passSubMenu.Show())
                 .Add("Exits and Entries", () => entriesExitsSubMenu.Show())
+                .Add("Others", () => nonCruds.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();
+        }
+
+        private static void ShowPersonCount()
+        {
+            var personCount = rest.GetSingle<int>("/api/Stat/PersonCount");
+            Console.WriteLine($"{personCount} persons are in the database.");
+            Console.ReadLine();
+        }
+
+        private static void ShowPersonsWithoutPasses()
+        {
+            var persons = rest.GetSingle<List<FullNameClass>>("/api/Stat/PersonsWithoutPasses");
+            foreach (var person in persons)
+            {
+                Console.WriteLine(person.FullName);
+            }
+            Console.ReadLine();
+        }
+
+        private static void ShowPWithMonthlyPsAndTUD()
+        {
+            var persons = rest.GetSingle<List<PWithMonthlyPsAndTUD>>("/api/Stat/PersonsWithMonthlyPassesAndTotalUsage");
+            foreach (var person in persons)
+            {
+                Console.WriteLine(person.FullName + " " + person.StartDate + " " + person.EndDate + " " + person.TotalUsageDuration);
+            }
+            Console.ReadLine();
+        }
+
+        private static void ShowStudentsWithActivePasses()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ShowPersonsWithExpiredPasses()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ShowPersonsWithEntriesExits()
+        {
+            throw new NotImplementedException();
         }
     }
 }
