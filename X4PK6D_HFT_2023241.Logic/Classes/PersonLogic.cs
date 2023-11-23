@@ -96,15 +96,15 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             var persons = _repo.ReadAll();
             var studentsWithActivePasses = from x in persons
-                                         where x.Pass.EndDate > DateTime.Now && x.Pass.PassType == "Student"
-                                         select new
-                                         {
-                                             FullName = $"{x.FirstName} {x.LastName}",
-                                             PassType = x.Pass.PassType,
-                                             EndDate = x.Pass.EndDate,
-                                             Entries = x.EntriesExits.Select(x => x.EntryTime),
-                                             Exits = x.EntriesExits.Select(x => x.ExitTime)
-                                         };
+                                           where x.Pass.EndDate > DateTime.Now && x.Pass.PassType == "Student"
+                                           select new
+                                           {
+                                               FullName = $"{x.FirstName} {x.LastName}",
+                                               PassType = x.Pass.PassType,
+                                               EndDate = x.Pass.EndDate,
+                                               Entries = x.EntriesExits.Select(x => x.EntryTime),
+                                               Exits = x.EntriesExits.Select(x => x.ExitTime)
+                                           };
             return studentsWithActivePasses;
         }
 
@@ -120,7 +120,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                               PassType = x.Pass.PassType,
                                               StartDate = x.Pass.StartDate,
                                               EndDate = x.Pass.EndDate,
-                                              //TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime - x.EntryTime).Sum()
+                                              TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime.Hour - x.EntryTime.Hour).Sum()
                                           };
             return personWithMonthlyPasses;
         }
