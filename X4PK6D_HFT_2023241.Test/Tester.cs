@@ -177,7 +177,7 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.PersonsWithExpiredPasses();
 
             // Assert
-            Assert.AreEqual(0, result.Count());
+            Assert.AreEqual(passesList.Where(x => x.EndDate < DateTime.Now).Count(), result.Count());
         }
 
         [Test]
@@ -187,7 +187,7 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.StudentsWithActivePasses();
 
             // Assert
-            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual(personsList.Where(x => x.IsStudent && x.Pass.EndDate > DateTime.Now).Count(), result.Count());
         }
 
         [Test]
@@ -197,7 +197,7 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.PersonsWithMonthlyPassesAndTotalUsageDuration();
 
             // Assert
-            Assert.AreEqual(5, result.Count());
+            Assert.AreEqual(personsList.Where(x => x.Pass.PassType == "Monthly").Count(), result.Count());
         }
 
         [Test]
@@ -207,7 +207,7 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.PersonsWithoutPasses();
 
             // Assert
-            Assert.AreEqual(0, result.Count());
+            Assert.AreEqual(personsList.Where(x => x.PassId == 0).Count(), result.Count());
         }
 
     }
