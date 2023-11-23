@@ -28,9 +28,6 @@ namespace X4PK6D_HFT_2023241.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<EntriesExits>().HasOne(e => e.Person).WithMany(e => e.EntriesExits).HasForeignKey(e => e.PersonId).OnDelete(DeleteBehavior.Cascade);
-            //modelBuilder.Entity<Person>().HasOne(p => p.Pass).WithMany(p => p.Persons).HasForeignKey(p => p.PassId).OnDelete(DeleteBehavior.Cascade);
-
             modelBuilder.Entity<EntriesExits>(e => e
             .HasOne(e => e.Person)
             .WithMany(person => person.EntriesExits)
