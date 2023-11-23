@@ -7,12 +7,12 @@ namespace X4PK6D_HFT_2023241.Logic
     {
         void Create(Person person);
         void Delete(int id);
-        int? PersonCount();
         Person Read(int id);
         IEnumerable<Person> ReadAll();
         void Update(Person person);
 
         // NON CRUD
+        int? PersonCount();
         IEnumerable<object> PersonsWithEntriesExits();
         IEnumerable<object> PersonsWithExpiredPasses();
         IEnumerable<object> StudentsWithActivePasses();
