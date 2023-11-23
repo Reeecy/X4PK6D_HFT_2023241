@@ -69,7 +69,7 @@ namespace X4PK6D_HFT_2023241.Test
                 new Person { Id = 3, FirstName = "Test3", LastName = "Test3", DateOfBirth = new DateTime(1980, 04, 18), Address = "789 Pine St", PhoneNumber = "555-9876", Email = "test3@gmail.com", IsStudent = false, IsRetired = true, PassId = 3, Pass = passesList.ToList()[2], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 4, FirstName = "Test4", LastName = "Test4", DateOfBirth = new DateTime(1992, 10, 8), Address = "123 Elm St", PhoneNumber = "555-4321", Email = "test4@gmail.com", IsStudent = true, IsRetired = false, PassId = 1, Pass = passesList.ToList()[0], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 5, FirstName = "Test5", LastName = "Test5", DateOfBirth = new DateTime(1985, 6, 20), Address = "789 Birch St", PhoneNumber = "555-8765", Email = "test5@gmail.com", IsStudent = false, IsRetired = true, PassId = 2, Pass = passesList.ToList()[1], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
-                new Person { Id = 6, FirstName = "6", LastName = "Test6", DateOfBirth = new DateTime(2000, 3, 15), Address = "456 Maple St", PhoneNumber = "555-9876", Email = "test6@gmail.com", IsStudent = true, IsRetired = false, PassId = 0, Pass = passesList.ToList()[0], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
+                new Person { Id = 6, FirstName = "6", LastName = "Test6", DateOfBirth = new DateTime(2000, 3, 15), Address = "456 Maple St", PhoneNumber = "555-9876", Email = "test6@gmail.com", IsStudent = true, IsRetired = false, PassId = 0, Pass = passesList.ToList()[0], EntriesExits = null },
                 new Person { Id = 7, FirstName = "Test7", LastName = "Test7", DateOfBirth = new DateTime(1998, 8, 30), Address = "789 Oak St", PhoneNumber = "555-5432", Email = "test7@gmail.com", IsStudent = false, IsRetired = true, PassId = 4, Pass = passesList.ToList()[3], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 8, FirstName = "Test8", LastName = "Test8", DateOfBirth = new DateTime(1982, 12, 5), Address = "123 Pine St", PhoneNumber = "555-6789", Email = "test8@gmail.com", IsStudent = true, IsRetired = false, PassId = 5, Pass = passesList.ToList()[4], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 9, FirstName = "Test9", LastName = "Test9", DateOfBirth = new DateTime(1995, 2, 25), Address = "456 Cedar St", PhoneNumber = "555-9876", Email = "test9@gmail.com", IsStudent = false, IsRetired = true, PassId = 6, Pass = passesList.ToList()[5], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
@@ -156,7 +156,8 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.ReadAll();
 
             // Assert
-            Assert.AreEqual(5, result.Count());
+
+            Assert.AreEqual(personsList.Count(), result.Count());
         }
 
         [Test]
@@ -166,7 +167,7 @@ namespace X4PK6D_HFT_2023241.Test
             var result = personLogic.PersonsWithEntriesExits();
 
             // Assert
-            Assert.AreEqual(5, result.Count());
+            Assert.AreEqual(personsList.Where(x => x.EntriesExits != null).Count(), result.Count());
         }
 
         [Test]
