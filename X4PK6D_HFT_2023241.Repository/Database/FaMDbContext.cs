@@ -79,8 +79,9 @@ namespace X4PK6D_HFT_2023241.Repository
             new Person { Id = 31, FirstName = "Zoe", LastName = "Wright", DateOfBirth = new DateTime(1998, 3, 30), Address = "141 Cedar St, Countryside", PhoneNumber = "555-5678", Email = "zoe.wright@example.com", IsStudent = false, IsRetired = true, PassId = 7 },
             new Person { Id = 32, FirstName = "Owen", LastName = "Roberts", DateOfBirth = new DateTime(1972, 7, 9), Address = "151 Maple St, Suburbville", PhoneNumber = "555-9012", Email = "owen.roberts@example.com", IsStudent = false, IsRetired = false, PassId = 8 },
             new Person { Id = 33, FirstName = "Grace", LastName = "Perry", DateOfBirth = new DateTime(1995, 1, 25), Address = "161 Oak St, Villagetown", PhoneNumber = "555-3456", Email = "grace.perry@example.com", IsStudent = true, IsRetired = false, PassId = 9 },
-            new Person { Id = 34, FirstName = "Elijah", LastName = "Fisher", DateOfBirth = new DateTime(1979, 9, 3), Address = "171 Cedar St, Citytown", PhoneNumber = "555-6789", Email = "elijah.fisher@example.com", IsStudent = false, IsRetired = false, PassId = 10 }
-
+            new Person { Id = 34, FirstName = "Elijah", LastName = "Fisher", DateOfBirth = new DateTime(1979, 9, 3), Address = "171 Cedar St, Citytown", PhoneNumber = "555-6789", Email = "elijah.fisher@example.com", IsStudent = false, IsRetired = false, PassId = 10 },
+            new Person { Id = 35, FirstName = "Eva", LastName = "Miller", DateOfBirth = new DateTime(2003, 7, 10), Address = "789 Elm St, Suburbia", PhoneNumber = "555-9876", Email = "eva.miller@example.com", IsStudent = true, IsRetired = false, PassId = 0 },
+            new Person { Id = 36, FirstName = "Charlie", LastName = "Davis", DateOfBirth = new DateTime(2007, 11, 5), Address = "123 Maple St, Cityville", PhoneNumber = "555-3456", Email = "charlie.davis@example.com", IsStudent = true, IsRetired = false, PassId = 0 }
             };
 
             List<Pass> passesList = new List<Pass>
@@ -88,7 +89,7 @@ namespace X4PK6D_HFT_2023241.Repository
                 new Pass { Id = 1, PassType = "Monthly", StartDate = DateTime.Now, EndDate = DateTime.Now.AddMonths(1), Price = 50, CrossfitGymUsage = true, GroupTrainingUsage = true, PoolUsage = true, SaunaUsage = true, MassageUsage = false },
                 new Pass { Id = 2, PassType = "Yearly", StartDate = DateTime.Now, EndDate = DateTime.Now.AddYears(1), Price = 500, CrossfitGymUsage = true, GroupTrainingUsage = true, PoolUsage = true, SaunaUsage = true, MassageUsage = true },
                 new Pass { Id = 4,PassType = "Daily",StartDate = DateTime.Now.AddDays(-2),EndDate = DateTime.Now.AddDays(1),Price = 30,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = false,MassageUsage = true},
-                new Pass { Id = 5,PassType = "Weekly",StartDate = DateTime.Now.AddDays(-7),EndDate = DateTime.Now.AddDays(7),Price = 100,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = true,MassageUsage = false},
+                new Pass { Id = 5,PassType = "Weekly",StartDate = DateTime.Now.AddDays(-14),EndDate = DateTime.Now.AddDays(-7),Price = 100,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = true,MassageUsage = false},
                 new Pass { Id = 6,PassType = "10-Day Pool",StartDate = DateTime.Now.AddDays(-3),EndDate = DateTime.Now.AddDays(10),Price = 75,CrossfitGymUsage = false,GroupTrainingUsage = false,PoolUsage = true,SaunaUsage = false,MassageUsage = false},
                 new Pass { Id = 8, PassType = "One-Day Pool", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 15, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = true, SaunaUsage = false, MassageUsage = false },
                 new Pass { Id = 9, PassType = "One-Day Sauna", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 20, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = false, SaunaUsage = true, MassageUsage = false },
