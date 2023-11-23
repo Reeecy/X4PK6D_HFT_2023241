@@ -20,6 +20,12 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             if (pass == null)
                 throw new ArgumentNullException(nameof(pass));
+            else if (pass.Id < 1 && pass.Id > 8)
+                throw new ArgumentOutOfRangeException(nameof(pass));
+            else if (pass.PassType == "")
+                throw new ArgumentNullException(nameof(pass));
+            else if (pass.Price < 0)
+                throw new ArgumentOutOfRangeException(nameof(pass));
             else
                 _repo.Create(pass);
         }
