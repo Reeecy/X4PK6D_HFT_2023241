@@ -130,7 +130,7 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             var persons = _repo.ReadAll();
             var personWithoutPasses = from x in persons
-                                      where x.PassId < 1 || x.PassId > 10
+                                      where x.PassId < 1 || x.PassId > 8
                                       select new
                                       {
                                           FullName = $"{x.FirstName} {x.LastName}"

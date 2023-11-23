@@ -85,12 +85,12 @@ namespace X4PK6D_HFT_2023241.Repository
             {
                 new Pass { Id = 1, PassType = "Monthly", StartDate = DateTime.Now, EndDate = DateTime.Now.AddMonths(1), Price = 50, CrossfitGymUsage = true, GroupTrainingUsage = true, PoolUsage = true, SaunaUsage = true, MassageUsage = false },
                 new Pass { Id = 2, PassType = "Yearly", StartDate = DateTime.Now, EndDate = DateTime.Now.AddYears(1), Price = 500, CrossfitGymUsage = true, GroupTrainingUsage = true, PoolUsage = true, SaunaUsage = true, MassageUsage = true },
-                new Pass { Id = 4,PassType = "Daily",StartDate = DateTime.Now.AddDays(-2),EndDate = DateTime.Now.AddDays(1),Price = 30,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = false,MassageUsage = true},
-                new Pass { Id = 5,PassType = "Weekly",StartDate = DateTime.Now.AddDays(-14),EndDate = DateTime.Now.AddDays(-7),Price = 100,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = true,MassageUsage = false},
-                new Pass { Id = 6,PassType = "10-Day Pool",StartDate = DateTime.Now.AddDays(-3),EndDate = DateTime.Now.AddDays(10),Price = 75,CrossfitGymUsage = false,GroupTrainingUsage = false,PoolUsage = true,SaunaUsage = false,MassageUsage = false},
-                new Pass { Id = 8, PassType = "One-Day Pool", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 15, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = true, SaunaUsage = false, MassageUsage = false },
-                new Pass { Id = 9, PassType = "One-Day Sauna", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 20, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = false, SaunaUsage = true, MassageUsage = false },
-                new Pass { Id = 10, PassType = "One-Day Massage", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 25, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = false, SaunaUsage = false, MassageUsage = true },
+                new Pass { Id = 3,PassType = "Daily",StartDate = DateTime.Now.AddDays(-2),EndDate = DateTime.Now.AddDays(1),Price = 30,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = false,MassageUsage = true},
+                new Pass { Id = 4,PassType = "Weekly",StartDate = DateTime.Now.AddDays(-14),EndDate = DateTime.Now.AddDays(-7),Price = 100,CrossfitGymUsage = true,GroupTrainingUsage = true,PoolUsage = false,SaunaUsage = true,MassageUsage = false},
+                new Pass { Id = 5,PassType = "10-Day Pool",StartDate = DateTime.Now.AddDays(-3),EndDate = DateTime.Now.AddDays(10),Price = 75,CrossfitGymUsage = false,GroupTrainingUsage = false,PoolUsage = true,SaunaUsage = false,MassageUsage = false},
+                new Pass { Id = 6, PassType = "One-Day Pool", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 15, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = true, SaunaUsage = false, MassageUsage = false },
+                new Pass { Id = 7, PassType = "One-Day Sauna", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 20, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = false, SaunaUsage = true, MassageUsage = false },
+                new Pass { Id = 8, PassType = "One-Day Massage", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(1), Price = 25, CrossfitGymUsage = false, GroupTrainingUsage = false, PoolUsage = false, SaunaUsage = false, MassageUsage = true },
             };
 
             List<EntriesExits> entriesExitsList = new List<EntriesExits>();
