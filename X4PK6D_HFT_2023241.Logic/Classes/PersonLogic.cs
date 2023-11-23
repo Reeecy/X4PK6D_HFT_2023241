@@ -69,8 +69,8 @@ namespace X4PK6D_HFT_2023241.Logic
                                          select new
                                          {
                                              FullName = $"{x.FirstName} {x.LastName}",
-                                             Entries = x.EntriesExits.Select(x => x.EntryTime),
-                                             Exits = x.EntriesExits.Select(x => x.ExitTime)
+                                             Entries = x.EntriesExits.Select(x => x.EntryTime.ToString("yyyy.MM.dd. HH:mm:ss")),
+                                             Exits = x.EntriesExits.Select(x => x.ExitTime.ToString("yyyy.MM.dd. HH:mm:ss"))
                                          };
             return personWithEntriesExits;
         }
@@ -85,7 +85,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                           {
                                               FullName = $"{x.FirstName} {x.LastName}",
                                               PassType = x.Pass.PassType,
-                                              EndDate = x.Pass.EndDate
+                                              EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd")
                                           };
             return personWithExpiredPasses;
         }
@@ -96,14 +96,14 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             var persons = _repo.ReadAll();
             var studentsWithActivePasses = from x in persons
-                                           where x.Pass.EndDate > DateTime.Now && x.Pass.PassType == "Student"
+                                           where x.Pass.EndDate > DateTime.Now && x.IsStudent == true
                                            select new
                                            {
                                                FullName = $"{x.FirstName} {x.LastName}",
                                                PassType = x.Pass.PassType,
-                                               EndDate = x.Pass.EndDate,
-                                               Entries = x.EntriesExits.Select(x => x.EntryTime),
-                                               Exits = x.EntriesExits.Select(x => x.ExitTime)
+                                               EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd"),
+                                               Entries = x.EntriesExits.Select(x => x.EntryTime.ToString("yyyy.MM.dd. HH:mm:ss")),
+                                               Exits = x.EntriesExits.Select(x => x.ExitTime.ToString("yyyy.MM.dd. HH:mm:ss"))
                                            };
             return studentsWithActivePasses;
         }
@@ -118,8 +118,8 @@ namespace X4PK6D_HFT_2023241.Logic
                                           {
                                               FullName = $"{x.FirstName} {x.LastName}",
                                               PassType = x.Pass.PassType,
-                                              StartDate = x.Pass.StartDate,
-                                              EndDate = x.Pass.EndDate,
+                                              StartDate = x.Pass.StartDate.ToString("yyyy.MM.dd"),
+                                              EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd"),
                                               TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime.Hour - x.EntryTime.Hour).Sum()
                                           };
             return personWithMonthlyPasses;

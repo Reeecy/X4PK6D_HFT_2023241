@@ -33,7 +33,7 @@ namespace X4PK6D_HFT_2023241.Endpoint.Controllers
             return logic.PersonsWithExpiredPasses();
         }
 
-        [HttpGet("PersonsWithActivePasses")]
+        [HttpGet("StudentsWithActivePasses")]
         public IEnumerable<object> StudentsWithActivePasses()
         {
             return logic.StudentsWithActivePasses();

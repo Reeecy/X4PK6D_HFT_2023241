@@ -100,7 +100,7 @@ namespace X4PK6D_HFT_2023241.Repository
             Random random = new Random();
             for (int i = 1; i <= 100; i++)
             {
-                DateTime entryTime = DateTime.Now.AddHours(-random.Next(1, 8));
+                DateTime entryTime = DateTime.Now.AddDays(-random.Next(1,10)).AddHours(-random.Next(1, 8));
                 DateTime exitTime = entryTime.AddHours(random.Next(1, 8));
 
                 EntriesExits entryExit = new EntriesExits
@@ -108,7 +108,7 @@ namespace X4PK6D_HFT_2023241.Repository
                     Id = i,
                     EntryTime = entryTime,
                     ExitTime = exitTime,
-                    PersonId = random.Next(1, 35)
+                    PersonId = random.Next(1, 36)
                 };
 
                 entriesExitsList.Add(entryExit);
