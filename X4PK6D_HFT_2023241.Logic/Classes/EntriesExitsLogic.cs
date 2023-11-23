@@ -21,6 +21,8 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             if (entriesExits == null)
                 throw new ArgumentNullException(nameof(entriesExits));
+            else if (entriesExits.EntryTime > entriesExits.ExitTime)
+                throw new ArgumentException("Entry time cannot be greater than exit time.");
             else
                 _repo.Create(entriesExits);
         }
