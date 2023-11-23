@@ -127,7 +127,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                               PassType = x.Pass.PassType,
                                               StartDate = x.Pass.StartDate.ToString("yyyy.MM.dd"),
                                               EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd"),
-                                              TotalUsageDuration = x.EntriesExits.Select(x => x.ExitTime.Hour - x.EntryTime.Hour).Sum()
+                                              TotalUsageDuration = x.EntriesExits.Select(e => (e.ExitTime - e.EntryTime).TotalHours).Sum()
                                           };
             return personWithMonthlyPasses;
         }
