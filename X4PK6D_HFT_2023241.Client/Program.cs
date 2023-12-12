@@ -17,7 +17,7 @@ namespace X4PK6D_HFT_2023241.Client
                 Console.Write("Enter Person's id to update: ");
                 int id = int.Parse(Console.ReadLine());
                 Person person = rest.Get<Person>(id, "person");
-                Console.Write($"New name [old: {person.FirstName} {person.LastName}] ");
+                Console.Write($"New Full name [old: {person.FirstName} {person.LastName}] ");
                 string name = Console.ReadLine();
                 person.FirstName = name.Split(" ")[0];
                 person.LastName = name.Split(" ")[1];
