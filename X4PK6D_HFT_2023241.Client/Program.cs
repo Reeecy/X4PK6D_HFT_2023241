@@ -1,6 +1,4 @@
 ﻿using ConsoleTools;
-using Microsoft.EntityFrameworkCore.Migrations;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
