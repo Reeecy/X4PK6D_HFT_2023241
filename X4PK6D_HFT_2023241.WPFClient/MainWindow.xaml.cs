@@ -30,7 +30,9 @@ namespace X4PK6D_HFT_2023241.WPFClient
 
         private void PassButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PassWindow passWindow = new PassWindow();
+            passWindow.Show();
+            this.Close();
         }
 
         private void EntriesExitsButton_Click(object sender, RoutedEventArgs e)
