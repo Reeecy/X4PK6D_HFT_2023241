@@ -19,7 +19,17 @@ namespace X4PK6D_HFT_2023241.WPFClient
         public Person SelectedPerson
         {
             get { return selectedPerson; }
-            set { SetProperty(ref selectedPerson, value);
+            set
+            {
+                if (value != null)
+                {
+                    selectedPerson = new Person()
+                    {
+                        FullName = value.FullName,
+                        Id = value.Id,
+                    };
+                }
+                OnPropertyChanged();
                 (DeletePersonCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
@@ -38,11 +48,15 @@ namespace X4PK6D_HFT_2023241.WPFClient
             {
                 Persons.Add(new Person()
                 {
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Address = "ValamiVaros"
+                    FullName = SelectedPerson.FullName,
                 });
             });
+
+            UpdatePersonCommand = new RelayCommand(() =>
+            {
+                Persons.Update(SelectedPerson);
+            });
+
 
             DeletePersonCommand = new RelayCommand(() =>
             {
