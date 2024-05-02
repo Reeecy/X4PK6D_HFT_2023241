@@ -3,42 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:X4PK6D_HFT_2023241.WPFClient"
         mc:Ignorable="d"
-        Title="Person Editor" Height="650" Width="1200">
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Persons}" SelectedItem="{Binding SelectedPerson}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding FullName}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1">
-            <Label Content="Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPerson.FullName}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Date of Birth" Background="LightBlue" Padding="10"/>
-            <DatePicker SelectedDate="{Binding SelectedPerson.DateOfBirth}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Address" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPerson.Address}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Email" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPerson.Email}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Phone Number" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPerson.PhoneNumber}" Padding="10" Margin="0,0,0,10"/>
-            <CheckBox Content="Is Student" IsChecked="{Binding SelectedPerson.IsStudent}" Margin="10"/>
-            <CheckBox Content="Is Retired" IsChecked="{Binding SelectedPerson.IsRetired}" Margin="10"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Create Person" Command="{Binding CreatePersonCommand}" Margin="10" Padding="10"/>
-                <Button Content="Update Person" Command="{Binding UpdatePersonCommand}" Margin="10" Padding="10"/>
-                <Button Content="Delete Person" Command="{Binding DeletePersonCommand}" Margin="10" Padding="10"/>
+        Title="Main Window" Height="800" Width="1300">
+    <Grid Background="#f0f0f0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Person Button -->
+        <Button Grid.Row="0" Margin="20" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#4CAF50" Foreground="White" BorderThickness="0" Click="PersonButton_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Person" FontSize="18" FontWeight="Bold" Margin="5"/>
             </StackPanel>
-        </StackPanel>
+        </Button>
+
+        <!-- Pass Button -->
+        <Button Grid.Row="1" Margin="20" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFC107" Foreground="White" BorderThickness="0" Click="PassButton_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Pass" FontSize="18" FontWeight="Bold" Margin="5"/>
+            </StackPanel>
+        </Button>
+
+        <!-- EntriesExits Button -->
+        <Button Grid.Row="2" Margin="20" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F44336" Foreground="White" BorderThickness="0" Click="EntriesExitsButton_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="EntriesExits" FontSize="18" FontWeight="Bold" Margin="5"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </Window>

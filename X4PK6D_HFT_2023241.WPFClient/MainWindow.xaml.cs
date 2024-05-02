@@ -20,5 +20,23 @@ namespace X4PK6D_HFT_2023241.WPFClient
         {
             InitializeComponent();
         }
+
+        private void PersonButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonWindow personWindow = new PersonWindow();
+            personWindow.Show();
+            this.Close();
+        }
+
+        private void PassButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EntriesExitsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
