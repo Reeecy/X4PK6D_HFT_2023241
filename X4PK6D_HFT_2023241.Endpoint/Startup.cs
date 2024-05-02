@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X4PK6D_HFT_2023241.Endpoint.Services;
 using X4PK6D_HFT_2023241.Logic;
 using X4PK6D_HFT_2023241.Models;
 using X4PK6D_HFT_2023241.Repository;
@@ -39,6 +40,8 @@ namespace X4PK6D_HFT_2023241.Endpoint
             services.AddTransient<IPersonLogic, PersonLogic>();
             services.AddTransient<IPassLogic, PassLogic>();
             services.AddTransient<IEntriesExitsLogic, EntriesExitsLogic>();
+
+            services.AddSignalR();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -75,6 +78,7 @@ namespace X4PK6D_HFT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

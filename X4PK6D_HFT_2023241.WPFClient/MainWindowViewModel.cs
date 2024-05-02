@@ -43,7 +43,7 @@ namespace X4PK6D_HFT_2023241.WPFClient
 
         public MainWindowViewModel()
         {
-            Persons = new RestCollection<Person>("http://localhost:20677/", "person");
+            Persons = new RestCollection<Person>("http://localhost:20677/", "person", "hub");
             CreatePersonCommand = new RelayCommand(() =>
             {
                 Persons.Add(new Person()
@@ -66,6 +66,8 @@ namespace X4PK6D_HFT_2023241.WPFClient
             {
                 return SelectedPerson != null;
             });
+
+            SelectedPerson = new Person();
         }
     }
 }
