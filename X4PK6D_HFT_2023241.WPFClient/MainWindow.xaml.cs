@@ -37,7 +37,9 @@ namespace X4PK6D_HFT_2023241.WPFClient
 
         private void EntriesExitsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            EntriesExitsWindow entriesExitsWindow = new EntriesExitsWindow();
+            entriesExitsWindow.Show();
+            this.Close();
         }
 
     }
