@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:X4PK6D_HFT_2023241.WPFClient"
       mc:Ignorable="d"
-      d:DesignHeight="800" d:DesignWidth="1300"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="PersonPage">
     <Window.DataContext>
         <local:PersonViewModel/>
@@ -13,8 +13,8 @@
 
     <Grid Background="#F0F0F0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="600"/>
-            <ColumnDefinition Width="*" MinWidth="600"/>
+            <ColumnDefinition Width="*" MinWidth="400"/>
+            <ColumnDefinition Width="*" MinWidth="300"/>
             <ColumnDefinition Width="*" MinWidth="10"/>
         </Grid.ColumnDefinitions>
         <Border BorderBrush="#CCCCCC" BorderThickness="1" Margin="10, 10, 10, 40">
@@ -46,9 +46,20 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="2">
-            <Button Margin="5" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" BorderThickness="1" Click="BackButton_Click">
+            <Button Margin="5" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderThickness="1" Click="BackButton_Click">
                 <TextBlock FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Assets/Fonts/materialdesignicons.ttf#Material Design Icons" Text="Back" FontSize="24" Foreground="#333333"/>
             </Button>
+
+            <!-- Display fetched data -->
+            <StackPanel Margin="20">
+                <!-- Buttons for non-CRUD operations -->
+                <Button Content="Get Person Count" Command="{Binding GetPersonCountCommand}" Padding="10" Width="150" Margin="0,10,0,0"/>
+                <Button Content="Get Persons Without Passes" Command="{Binding GetPersonsWithoutPassesCommand}" Padding="10" Width="200" Margin="0,10,0,0"/>
+                <Button Content="Show Persons with Monthly Passes and Total Usage" Command="{Binding ShowPWithMonthlyPsAndTUDCommand}" Padding="10" Width="300" Margin="0,10,0,0"/>
+                <Button Content="Show Students with Active Passes" Command="{Binding ShowStudentsWithActivePassesCommand}" Padding="10" Width="250" Margin="0,10,0,0"/>
+                <Button Content="Show Persons with Expired Passes" Command="{Binding ShowPersonsWithExpiredPassesCommand}" Padding="10" Width="250" Margin="0,10,0,0"/>
+                <Button Content="Show Persons with Entries and Exits" Command="{Binding ShowPersonsWithEntriesExitsCommand}" Padding="10" Width="250" Margin="0,10,0,0"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 
