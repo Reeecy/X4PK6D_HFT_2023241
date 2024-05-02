@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using X4PK6D_HFT_2023241.Models;
 
@@ -25,8 +26,14 @@ namespace X4PK6D_HFT_2023241.WPFClient
                 {
                     selectedPerson = new Person()
                     {
-                        FullName = value.FullName,
                         Id = value.Id,
+                        FullName = value.FullName,
+                        DateOfBirth = value.DateOfBirth,
+                        Address = value.Address,
+                        Email = value.Email,
+                        PhoneNumber = value.PhoneNumber,
+                        IsStudent = value.IsStudent,
+                        IsRetired = value.IsRetired,
                     };
                 }
                 OnPropertyChanged();
@@ -49,18 +56,28 @@ namespace X4PK6D_HFT_2023241.WPFClient
                 Persons.Add(new Person()
                 {
                     FullName = SelectedPerson.FullName,
+                    DateOfBirth = SelectedPerson.DateOfBirth,
+                    Address = SelectedPerson.Address,
+                    Email = SelectedPerson.Email,
+                    PhoneNumber = SelectedPerson.PhoneNumber,
+                    IsRetired = SelectedPerson.IsRetired,
+                    IsStudent = SelectedPerson.IsStudent,
                 });
+                ShowMessageBox("Person created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             });
 
             UpdatePersonCommand = new RelayCommand(() =>
             {
                 Persons.Update(SelectedPerson);
+                ShowMessageBox("Person updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             });
 
 
             DeletePersonCommand = new RelayCommand(() =>
             {
                 Persons.Delete(SelectedPerson.Id);
+                ClearSelectedPersonFields();
+                ShowMessageBox("Person deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             },
             () =>
             {
@@ -68,6 +85,16 @@ namespace X4PK6D_HFT_2023241.WPFClient
             });
 
             SelectedPerson = new Person();
+        }
+
+        public void ClearSelectedPersonFields()
+        {
+            SelectedPerson = new Person();
+        }
+
+        public void ShowMessageBox(string message, string caption, MessageBoxButton button, MessageBoxImage icon)
+        {
+            MessageBox.Show(message, caption, button, icon);
         }
     }
 }
