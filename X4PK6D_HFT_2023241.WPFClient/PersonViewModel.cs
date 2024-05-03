@@ -15,7 +15,7 @@ namespace X4PK6D_HFT_2023241.WPFClient
     {
         private readonly RestService rest;
 
-        // Properties to hold the non-crud data
+        // Commands for the non-crud methods
         public ICommand GetPersonCountCommand { get; }
         public ICommand GetPersonsWithoutPassesCommand { get; }
         public ICommand ShowPWithMonthlyPsAndTUDCommand { get; }
@@ -23,11 +23,9 @@ namespace X4PK6D_HFT_2023241.WPFClient
         public ICommand ShowPersonsWithExpiredPassesCommand { get; }
         public ICommand ShowPersonsWithEntriesExitsCommand { get; }
 
-
+        // define the Persons, and setup the SelectedPerson
         public RestCollection<Person> Persons { get; set; }
-
         private Person selectedPerson;
-
         public Person SelectedPerson
         {
             get { return selectedPerson; }
