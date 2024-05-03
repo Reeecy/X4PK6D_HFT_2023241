@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace X4PK6D_2023241.JSClient
+namespace X4PK6D_HFT_2023241.JSClient
 {
     public class Startup
     {
@@ -25,12 +25,6 @@ namespace X4PK6D_2023241.JSClient
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseCors(x => x
-                .AllowCredentials()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .WithOrigins("http://localhost:20677"));
 
             app.UseRouting();
 

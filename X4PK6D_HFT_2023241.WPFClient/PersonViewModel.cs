@@ -59,9 +59,9 @@ namespace X4PK6D_HFT_2023241.WPFClient
 
         public PersonViewModel()
         {
-            rest = new RestService("http://localhost:5000/", "person");
+            rest = new RestService("http://localhost:20677/", "person");
 
-            Persons = new RestCollection<Person>("http://localhost:5000/", "person", "hub");
+            Persons = new RestCollection<Person>("http://localhost:20677/", "person", "hub");
             CreatePersonCommand = new RelayCommand(() =>
             {
                 Persons.Add(new Person()
