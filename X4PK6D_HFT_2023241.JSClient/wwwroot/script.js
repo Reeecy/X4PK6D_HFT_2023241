@@ -135,6 +135,8 @@ function showupdate(id) {
     document.getElementById('isstudenttoupdate').checked = personToUpdate['isStudent'];
 
     document.getElementById('updateformdiv').style.display = 'flex';
+    document.getElementById('updateformdiv').style.flexDirection = 'row';
+    document.getElementById('updateformdiv').style.flexWrap = 'wrap';
     personIdToUpdate = id;
 }
 
