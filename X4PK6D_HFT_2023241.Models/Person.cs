@@ -11,10 +11,9 @@ namespace X4PK6D_HFT_2023241.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [StringLength(60)]
-        public string FirstName { get; set; }
-        [StringLength(60)]
-        public string LastName { get; set;}
+
+        public string FullName { get; set; }
+
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
         [StringLength(30)]

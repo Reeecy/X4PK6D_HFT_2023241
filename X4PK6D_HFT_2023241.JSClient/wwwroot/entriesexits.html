@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntriesExits Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EntriesExits Management</h1>
+
+        <div class="section" id="formdiv">
+            <div class="section-title">Add New Entry/Exit</div>
+            <div class="form-group">
+                <label for="entryTime">Entry Time</label>
+                <input type="date" id="entryTime">
+            </div>
+            <div class="form-group">
+                <label for="exitTime">Exit Time</label>
+                <input type="date" id="exitTime">
+            </div>
+            <div class="form-group">
+                <label for="personId">Person ID</label>
+                <input type="number" id="personId">
+            </div>
+            <button class="button" onclick="createEntryExit()">Add Entry/Exit</button>
+        </div>
+
+        <div class="section" id="updateformdiv">
+            <div class="section-title">Update Entry/Exit</div>
+            <div class="form-group">
+                <label for="entryTimeToUpdate">Entry Time</label>
+                <input type="date" id="entryTimeToUpdate">
+            </div>
+            <div class="form-group">
+                <label for="exitTimeToUpdate">Exit Time</label>
+                <input type="date" id="exitTimeToUpdate">
+            </div>
+            <div class="form-group">
+                <label for="personIdToUpdate">Person ID</label>
+                <input type="number" id="personIdToUpdate">
+            </div>
+            <button class="button" onclick="updateEntryExit()">Update Entry/Exit</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                    <th>Person ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="resultarea">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.7/signalr.min.js"></script>
+    <script src="scriptEntriesExits.js"></script>
+</body>
+</html>

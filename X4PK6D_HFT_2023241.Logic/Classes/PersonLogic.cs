@@ -20,12 +20,8 @@ namespace X4PK6D_HFT_2023241.Logic
         {
             if (person == null)
                 throw new ArgumentNullException(nameof(person));
-            else if (person.Address == "" || person.Address.Length < 4)
-                throw new ArgumentException("Wrong Address");
-            else if (person.FirstName == "" || person.FirstName.Length < 2)
-                throw new ArgumentException("Wrong Name");
-            else if (person.LastName == "" || person.LastName.Length < 2)
-                throw new ArgumentException("Wrong Name");
+            else if (person.FullName == "")
+                throw new ArgumentException("The Name cannot be empty");
             else
                 _repo.Create(person);
         }
@@ -75,7 +71,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                          where x.EntriesExits.Count > 0
                                          select new
                                          {
-                                             FullName = $"{x.FirstName} {x.LastName}",
+                                             FullName = x.FullName,
                                              Entries = x.EntriesExits.Select(x => x.EntryTime.ToString("yyyy.MM.dd. HH:mm:ss")),
                                              Exits = x.EntriesExits.Select(x => x.ExitTime.ToString("yyyy.MM.dd. HH:mm:ss"))
                                          };
@@ -90,7 +86,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                           where x.Pass.EndDate < DateTime.Now
                                           select new
                                           {
-                                              FullName = $"{x.FirstName} {x.LastName}",
+                                              FullName = x.FullName,
                                               PassType = x.Pass.PassType,
                                               EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd")
                                           };
@@ -106,7 +102,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                            where x.Pass.EndDate > DateTime.Now && x.IsStudent == true
                                            select new
                                            {
-                                               FullName = $"{x.FirstName} {x.LastName}",
+                                               FullName = x.FullName,
                                                PassType = x.Pass.PassType,
                                                EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd"),
                                                Entries = x.EntriesExits.Select(x => x.EntryTime.ToString("yyyy.MM.dd. HH:mm:ss")),
@@ -123,7 +119,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                           where x.Pass.PassType == "Monthly"
                                           select new
                                           {
-                                              FullName = $"{x.FirstName} {x.LastName}",
+                                              FullName = x.FullName,
                                               PassType = x.Pass.PassType,
                                               StartDate = x.Pass.StartDate.ToString("yyyy.MM.dd"),
                                               EndDate = x.Pass.EndDate.ToString("yyyy.MM.dd"),
@@ -140,7 +136,7 @@ namespace X4PK6D_HFT_2023241.Logic
                                       where !persons.Any(y => y.Pass.Id == x.PassId)
                                       select new
                                       {
-                                          FullName = $"{x.FirstName} {x.LastName}"
+                                          FullName = x.FullName
                                       };
             return personWithoutPasses;
         }

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PassUI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Pass Catalog</h1>
+
+        <div class="section" id="formdiv">
+            <div class="section-title">Add New Pass</div>
+            <div class="form-group">
+                <label for="passType">Pass Type</label>
+                <input type="text" id="passType">
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price">
+            </div>
+            <div class="form-group">
+                <label>Usage Options</label><br>
+                <input type="checkbox" id="crossfitGymUsage">
+                <label for="crossfitGymUsage">Crossfit Gym</label><br>
+                <input type="checkbox" id="groupTrainingUsage">
+                <label for="groupTrainingUsage">Group Training</label><br>
+                <input type="checkbox" id="poolUsage">
+                <label for="poolUsage">Pool</label><br>
+                <input type="checkbox" id="saunaUsage">
+                <label for="saunaUsage">Sauna</label><br>
+                <input type="checkbox" id="massageUsage">
+                <label for="massageUsage">Massage</label>
+            </div>
+            <button class="button" onclick="createPass()">Add Pass</button>
+        </div>
+
+        <div class="section" id="updateformdiv">
+            <div class="section-title">Update Pass</div>
+            <div class="form-group">
+                <label for="passTypeToUpdate">Pass Type</label>
+                <input type="text" id="passTypeToUpdate">
+            </div>
+            <div class="form-group">
+                <label for="startDateToUpdate">Start Date</label>
+                <input type="date" id="startDateToUpdate">
+            </div>
+            <div class="form-group">
+                <label for="endDateToUpdate">End Date</label>
+                <input type="date" id="endDateToUpdate">
+            </div>
+            <div class="form-group">
+                <label for="priceToUpdate">Price</label>
+                <input type="number" id="priceToUpdate">
+            </div>
+            <div class="form-group">
+                <label>Usage Options</label><br>
+                <input type="checkbox" id="crossfitGymUsageToUpdate">
+                <label for="crossfitGymUsageToUpdate">Crossfit Gym</label><br>
+                <input type="checkbox" id="groupTrainingUsageToUpdate">
+                <label for="groupTrainingUsageToUpdate">Group Training</label><br>
+                <input type="checkbox" id="poolUsageToUpdate">
+                <label for="poolUsageToUpdate">Pool</label><br>
+                <input type="checkbox" id="saunaUsageToUpdate">
+                <label for="saunaUsageToUpdate">Sauna</label><br>
+                <input type="checkbox" id="massageUsageToUpdate">
+                <label for="massageUsageToUpdate">Massage</label>
+            </div>
+            <button class="button" onclick="updatePass()">Update Pass</button>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Pass Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Price</th>
+                    <th>Usage Options</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="resultarea">
+                <!-- Passes will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="passScript.js"></script>
+</body>
+</html>
