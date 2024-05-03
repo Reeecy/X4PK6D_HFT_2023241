@@ -61,7 +61,7 @@ namespace X4PK6D_HFT_2023241.Test
             }
             entriesExitsList = entriesExits.AsQueryable();
 
-
+            /**
             personsList = new List<Person>()
             {
                 new Person {Id = 1, FirstName = "Test1", LastName = "Test1", DateOfBirth = new DateTime(2003,01,26), Address = "Test", PhoneNumber = "Test1", Email = "test1@gmail.com", IsStudent = true, IsRetired = false, PassId = 1, Pass = passesList.ToList()[0], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
@@ -77,7 +77,7 @@ namespace X4PK6D_HFT_2023241.Test
                 new Person { Id = 11, FirstName = "Test11", LastName = "Test11", DateOfBirth = new DateTime(1993, 4, 3), Address = "123 Spruce St", PhoneNumber = "555-5678", Email = "test11@gmail.com", IsStudent = false, IsRetired = true, PassId = 8, Pass = passesList.ToList()[7], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 12, FirstName = "Test12", LastName = "Test12", DateOfBirth = new DateTime(2001, 9, 15), Address = "456 Fir St", PhoneNumber = "555-8765", Email = "test12@gmail.com", IsStudent = true, IsRetired = false, PassId = 2, Pass = passesList.ToList()[1], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() },
                 new Person { Id = 13, FirstName = "Test13", LastName = "Test13", DateOfBirth = new DateTime(1996, 7, 20), Address = "789 Sycamore St", PhoneNumber = "555-4321", Email = "test13@gmail.com", IsStudent = false, IsRetired = true, PassId = 1, Pass = passesList.ToList()[0], EntriesExits = entriesExitsList.OrderBy(x => Guid.NewGuid()).Take(5).ToList() }
-            }.AsQueryable();
+            }.AsQueryable();**/
             #endregion
 
             mockPersonRepo = new Mock<IRepository<Person>>();

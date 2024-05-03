@@ -17,10 +17,10 @@ namespace X4PK6D_HFT_2023241.Client
                 Console.Write("Enter Person's id to update: ");
                 int id = int.Parse(Console.ReadLine());
                 Person person = rest.Get<Person>(id, "person");
-                Console.Write($"New Full name [old: {person.FirstName} {person.LastName}] ");
+                //Console.Write($"New Full name [old: {person.FirstName} {person.LastName}] ");
                 string name = Console.ReadLine();
-                person.FirstName = name.Split(" ")[0];
-                person.LastName = name.Split(" ")[1];
+                //person.FirstName = name.Split(" ")[0];
+                //person.LastName = name.Split(" ")[1];
                 Console.Write($"New date of birth [old: {person.DateOfBirth}] ");
                 DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
                 Console.Write($"New Phone Number [old: {person.PhoneNumber}] ");
@@ -35,7 +35,7 @@ namespace X4PK6D_HFT_2023241.Client
                 string email = Console.ReadLine();
                 Console.Write($"New Pass Id [old: {person.PassId}] ");
                 int passId = int.Parse(Console.ReadLine());
-                rest.Put(new Person { Id = id, FirstName = name.Split(" ")[0], LastName = name.Split(" ")[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
+                //rest.Put(new Person { Id = id, FirstName = name.Split(" ")[0], LastName = name.Split(" ")[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
             }
 
             if (v == "Pass")
@@ -124,7 +124,7 @@ namespace X4PK6D_HFT_2023241.Client
                 string email = Console.ReadLine();
                 Console.Write("Enter Person's Pass Id: ");
                 int passId = int.Parse(Console.ReadLine());
-                rest.Post(new Person { FirstName = person[0], LastName = person[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
+                //rest.Post(new Person { FirstName = person[0], LastName = person[1], DateOfBirth = dateOfBirth, PhoneNumber = phoneNumber, IsStudent = isStudent, IsRetired = isRetired, Address = address, Email = email, PassId = passId }, "person");
             }
 
             if (v == "Pass")
@@ -167,7 +167,7 @@ namespace X4PK6D_HFT_2023241.Client
             if (v == "Person")
             {
                 List<Person> items = rest.Get<Person>("person");
-                foreach (Person person in items) { Console.WriteLine(person.Id + " " + person.FirstName + " " + person.LastName); }
+                //foreach (Person person in items) { Console.WriteLine(person.Id + " " + person.FirstName + " " + person.LastName); }
             }
             else if (v == "Pass")
             {
