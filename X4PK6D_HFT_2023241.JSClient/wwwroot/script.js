@@ -178,3 +178,80 @@ function update() {
         })
         .catch((error) => { console.error('Error:', error); });
 }
+
+// Define non-CRUD functionalities
+
+async function getPersonCount() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/PersonCount");
+        const count = await response.json();
+        alert(`The count of the persons: ${count}.`);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getPersonsWithoutPasses() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/PersonsWithoutPasses");
+        const persons = await response.json();
+        let personsList = persons.map(person => person.fullName).join('\n');
+        let message = `The Persons without passes: \n\n${personsList}`;
+        alert(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showPWithMonthlyPsAndTUD() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/PersonsWithMonthlyPassesAndTotalUsage");
+        const persons = await response.json();
+        let personList = persons.map(person => `${person.fullName}: ${person.totalUsageDuration} times`).join('\n');
+        let message = `Persons who have Monthly pass and their total usage: \n\n${personList}`;
+        alert(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showStudentsWithActivePasses() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/StudentsWithActivePasses");
+        const students = await response.json();
+        let studentsList = students.map(student => `Name: ${student.fullName}\n\t- Pass Type: ${student.passType}\n\t- Expire date: ${student.endDate}`).join('\n');
+        let message = `Students who have active passes: \n${studentsList}`;
+        alert(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showPersonsWithExpiredPasses() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/PersonsWithExpiredPasses");
+        const persons = await response.json();
+        let personList = persons.map(person => `Name: ${person.fullName}\n\t- Pass Type: ${person.passType}\n\t- Expire date: ${person.endDate}`).join('\n');
+        let message = `Persons who have expired passes: \n${personList}`;
+        alert(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function showPersonsWithEntriesExits() {
+    try {
+        const response = await fetch("http://localhost:20677/api/Stat/PersonsWithEntriesAndExits");
+        const persons = await response.json();
+        let message = "Persons with their Entries and Exits:\n";
+        persons.forEach(person => {
+            message += `${person.fullName}:\n`;
+            for (let i = 0; i < person.entries.length; i++) {
+                message += `\tEntry: ${person.entries[i]} - Exit: ${person.exits[i]}\n`;
+            }
+        });
+        alert(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
